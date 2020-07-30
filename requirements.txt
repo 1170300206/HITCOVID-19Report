@@ -1,0 +1,4 @@
+pycryptodome
+beautifulsoup4
+readconfig
+configparser

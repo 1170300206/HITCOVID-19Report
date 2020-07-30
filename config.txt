@@ -1,0 +1,18 @@
+[DEFAULT]
+usr = 
+passwd = 
+
+
+[Website]
+usr-agent = Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36 Edg/84.0.522.44
+Login-url = http://ids.hit.edu.cn/authserver/login?service=https://xg.hit.edu.cn/zhxy-xgzs//xg_yqglxs/xsmrsb
+captcha = http://ids.hit.edu.cn/authserver/needCaptcha.html
+loginUrl = http://ids.hit.edu.cn/authserver/login?service=http://xg.hit.edu.cn/zhxy-xgzs/common/casLogin
+addUrl = https://xg.hit.edu.cn/zhxy-xgzs/xg_yqglxs/xsmrsb/csh
+editUrl = https://xg.hit.edu.cn/zhxy-xgzs/xg_yqglxs/xsmrsb/getYqxx
+saveUrl = https://xg.hit.edu.cn/zhxy-xgzs/xg_yqglxs/xsmrsb/saveYqxx
+
+[Push]
+pushUrl = http://pushplus.hxtrip.com/send
+token = 
+template = html
