@@ -57,7 +57,7 @@ class WebsiteReporter(object):
     def readState(time):
         with open(os.path.join(os.path.dirname(__file__), "log.txt"), "r", encoding="utf-8") as f:
             logs = f.readlines()
-            if len(logs) > 0 and len(logs[0].strip()) > 0:
+            if len(logs) > 0 and len(logs[-1].strip()) > 0:
                 time1, state = logs[-1].split("\t")
                 if time1 == time and state.startswith('success'):
                     return True
