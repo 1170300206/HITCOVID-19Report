@@ -5,7 +5,7 @@ Harbin Institute of Technology's COVID-19 daily report
 
 ## Dependencies
 
-Python 3
+Python 3.7
 
 pycryptodome
 
@@ -14,6 +14,14 @@ beautifulsoup4
 readconfig
 
 configparser
+
+Requests
+
+lxml
+
+## v1.1
+
+实现了每天两次体温上报
 
 ## v1.0
 
@@ -56,7 +64,7 @@ vi run.sh
 
 在vim中运行set ff=unix来进行编码的转换
 
-使用crontab进行定时运行，程序通过检查log.txt中的内容来判断是否再次签到。
+使用crontab进行定时运行，程序通过检查log.txt（每日上报的文件为log.txt，体温上报的文件为tempLog.txt）中的内容来判断是否再次签到。
 
 首先对cronotab的定时任务进行编辑
 
@@ -64,7 +72,7 @@ vi run.sh
 crontab -e
 ```
 
-在打开的内容中添加如下定时任务，其会在每天8-18点间每半个小时执行一次脚本，当log.txt中有当天的执行成功记录，则不会再运行。
+在打开的内容中添加如下定时任务，其会在每天8-18点间每半个小时执行一次脚本，当log.txt和tempLog.txt中有当天的执行成功记录，则不会再运行。
 
 ```shell
 0,30 8-18 * * * yourpath/HITCOVID-19Report/run.sh
@@ -78,3 +86,9 @@ tail -f /var/log/cron # 列出crontab的执行记录
 ```
 
 需要保证crontab已经运行，crontab的运行可以查阅<a href="https://www.cnblogs.com/ftl1012/p/crontab.html">这里</a>
+
+### 消息推送
+
+使用PushPlus进行推送结果的微信推送
+
+在<a href=http://pushplus.hxtrip.com/index>官方网站</a>注册PushPlus账号，获得一对一推送token，填写入config.txt中的Push项的token处，就可以每天从微信获得上报的结果。

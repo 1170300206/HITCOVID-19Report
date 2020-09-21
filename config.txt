@@ -13,6 +13,18 @@ editUrl = https://xg.hit.edu.cn/zhxy-xgzs/xg_yqglxs/xsmrsb/getYqxx
 saveUrl = https://xg.hit.edu.cn/zhxy-xgzs/xg_yqglxs/xsmrsb/saveYqxx
 
 [Push]
+
 pushUrl = http://pushplus.hxtrip.com/send
 token = 
 template = html
+
+
+[temperature]
+test = https://xg.hit.edu.cn/zhxy-xgzs//xg_yqglxs/xsmrsb
+test1 = https://xg.hit.edu.cn/zhxy-xgzs/xg_mobile/xsTwsb
+getstateUrl = https://xg.hit.edu.cn/zhxy-xgzs/xg_mobile/xsTwsb/getTwsb
+getstateByid = https://xg.hit.edu.cn/zhxy-xgzs/xg_mobile/xsTwsb/getTwsbById
+addUrl = https://xg.hit.edu.cn/zhxy-xgzs/xg_mobile/xsTwsb/saveTwsb
+Login-url = http://ids.hit.edu.cn/authserver/login?service=https://xg.hit.edu.cn/zhxy-xgzs/xg_mobile/xsTwsb
+token-url = https://xg.hit.edu.cn/zhxy-xgzs/xg_mobile/xs/getToken
+update-url = https://xg.hit.edu.cn/zhxy-xgzs/xg_mobile/xsTwsb/updateTwsb

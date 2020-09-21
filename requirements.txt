@@ -2,3 +2,5 @@ pycryptodome
 beautifulsoup4
 readconfig
 configparser
+Requests
+lxml
