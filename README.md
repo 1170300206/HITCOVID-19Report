@@ -78,6 +78,14 @@ crontab -e
 0,30 8-18 * * * yourpath/HITCOVID-19Report/run.sh
 ```
 
+其中，run.sh中会执行上报的两个函数
+
+```shell
+#!/bin/sh
+python yourpath/HITCOVID-19Report/WebsiteReporter.py
+python yourpath/HITCOVID-19Report/main.py
+```
+
 以下是crontab的一些常用命令
 
 ```shell

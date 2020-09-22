@@ -77,24 +77,24 @@ class WebsiteReporter(object):
             requests.post(self.pushUrl, headers={'Content-Type': 'application/json'}, data=json.dumps({
                 'token': self.reader.get('Push', 'token'), "title": title, 'content': msg, 'template': self.reader.get('Push', 'template')}).encode("utf-8"))
 
-    def reportTemperature(self):
+    def reportTemperature(self, morning = True):
         rtn = self.session.post(self.reader.get('temperature', 'getstateUrl'))
         rtn = json.loads(rtn.content)
         if rtn['module'][0]['sfdt'] == "1":
-            self.pushMsg(time.strftime("%m-%d %H:%M:%S", time.localtime()) + " 添加体温失败", 
-                    "今日添加体温失败，添加时间为" + time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()) + "\n" +
-                    "上报用户名: " + self.usr + "\n"
-                    + "错误原因：" + '已经生成今日体温')
+            #self.pushMsg(time.strftime("%m-%d %H:%M:%S", time.localtime()) + " 添加体温失败", 
+            #        "今日添加体温失败，添加时间为" + time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()) + "\n" +
+            #        "上报用户名: " + self.usr + "\n"
+            #        + "错误原因：" + '已经生成今日体温')
             tokenstr = rtn['module'][0]["id"]
         else:
             token_url = self.reader.get('temperature', 'token-url')
             tokenstr = bytes.decode(self.session.post(token_url).content)
             addUrl = self.reader.get('temperature', 'addUrl')
-            result = self.session.post(addUrl, data = {'token': tokenstr})
+            result = self.session.post(addUrl, data = {"info": json.dumps({'token': tokenstr}, ensure_ascii=False)})
             if json.loads(result.content)['isSuccess']:
                 self.pushMsg(time.strftime("%m-%d %H:%M:%S", time.localtime()) + " 添加体温失败", 
-                        "今日添加体温成功，添加时间为" + time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()) + "\n" +
-                        "上报用户名: " + self.usr)  
+                        "今日添加体温失败，添加时间为" + time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()) + "\n" +
+                        "上报用户名: " + self.usr + "\n" + "错误原因：" + json.loads(result.content)['msg'])  
         #StateById = self.reader.get('temperature', 'getstateByid')
         #rtn = json.loads(self.session.post(StateById, data = {"info": json.dumps({'id': tokenstr}, ensure_ascii=False)}).content)['module']
         updateUrl = addUrl = self.reader.get('temperature', 'update-url')
@@ -115,14 +115,14 @@ class WebsiteReporter(object):
         }
         rtn2 = json.loads(self.session.post(updateUrl, data={"info": json.dumps({"data": data}, ensure_ascii=False)}).content)['isSuccess']
         if rtn1 and rtn2:
-            self.writeLog('success', time.strftime("%m-%d", time.localtime()), "tempLog.txt")
+            self.writeLog('success', time.strftime("%m-%d", time.localtime()), "tempLog1.txt")
             self.pushMsg(time.strftime("%m-%d %H:%M:%S", time.localtime()) + " 体温上报成功", 
-                    "今日体温上报成功，上报时间为" + time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()) + "\n" +
+                    "下午体温上报成功，上报时间为" + time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()) + "\n" +
                     "上报用户名: " + self.usr)
         else:
-            self.writeLog('fail', time.strftime("%m-%d", time.localtime()), "tempLog.txt")
+            self.writeLog('fail', time.strftime("%m-%d", time.localtime()), "tempLog2.txt")
             self.pushMsg(time.strftime("%m-%d %H:%M:%S", time.localtime()) + " 体温上报失败", 
-                    "今日体温上报失败，上报时间为" + time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()) + "\n" +
+                    "下午体温上报失败，上报时间为" + time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()) + "\n" +
                     "上报用户名: " + self.usr)
 
 
