@@ -115,14 +115,14 @@ class WebsiteReporter(object):
         }
         rtn2 = json.loads(self.session.post(updateUrl, data={"info": json.dumps({"data": data}, ensure_ascii=False)}).content)['isSuccess']
         if rtn1 and rtn2:
-            self.writeLog('success', time.strftime("%m-%d", time.localtime()), "tempLog1.txt")
+            self.writeLog('success', time.strftime("%m-%d", time.localtime()), "tempLog.txt")
             self.pushMsg(time.strftime("%m-%d %H:%M:%S", time.localtime()) + " 体温上报成功", 
-                    "下午体温上报成功，上报时间为" + time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()) + "\n" +
+                    "今日体温上报成功，上报时间为" + time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()) + "\n" +
                     "上报用户名: " + self.usr)
         else:
-            self.writeLog('fail', time.strftime("%m-%d", time.localtime()), "tempLog2.txt")
+            self.writeLog('fail', time.strftime("%m-%d", time.localtime()), "tempLog.txt")
             self.pushMsg(time.strftime("%m-%d %H:%M:%S", time.localtime()) + " 体温上报失败", 
-                    "下午体温上报失败，上报时间为" + time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()) + "\n" +
+                    "今日体温上报失败，上报时间为" + time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()) + "\n" +
                     "上报用户名: " + self.usr)
 
 
