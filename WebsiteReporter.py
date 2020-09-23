@@ -80,7 +80,7 @@ class WebsiteReporter(object):
     def reportTemperature(self, morning = True):
         rtn = self.session.post(self.reader.get('temperature', 'getstateUrl'))
         rtn = json.loads(rtn.content)
-        if rtn['module'][0]['sfdt'] == "1":
+        if len(rtn['module']) > 0 and rtn['module'][0]['sfdt'] == "1":
             #self.pushMsg(time.strftime("%m-%d %H:%M:%S", time.localtime()) + " 添加体温失败", 
             #        "今日添加体温失败，添加时间为" + time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()) + "\n" +
             #        "上报用户名: " + self.usr + "\n"
@@ -91,7 +91,8 @@ class WebsiteReporter(object):
             tokenstr = bytes.decode(self.session.post(token_url).content)
             addUrl = self.reader.get('temperature', 'addUrl')
             result = self.session.post(addUrl, data = {"info": json.dumps({'token': tokenstr}, ensure_ascii=False)})
-            if json.loads(result.content)['isSuccess']:
+            tokenstr = json.loads(result.content)['module']
+            if not json.loads(result.content)['isSuccess']:
                 self.pushMsg(time.strftime("%m-%d %H:%M:%S", time.localtime()) + " 添加体温失败", 
                         "今日添加体温失败，添加时间为" + time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()) + "\n" +
                         "上报用户名: " + self.usr + "\n" + "错误原因：" + json.loads(result.content)['msg'])  
