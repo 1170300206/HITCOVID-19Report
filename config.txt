@@ -8,9 +8,9 @@ usr-agent = Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
 Login-url = http://ids.hit.edu.cn/authserver/login?service=https://xg.hit.edu.cn/zhxy-xgzs//xg_yqglxs/xsmrsb
 captcha = http://ids.hit.edu.cn/authserver/needCaptcha.html
 loginUrl = http://ids.hit.edu.cn/authserver/login?service=http://xg.hit.edu.cn/zhxy-xgzs/common/casLogin
-addUrl = https://xg.hit.edu.cn/zhxy-xgzs/xg_yqglxs/xsmrsb/csh
-editUrl = https://xg.hit.edu.cn/zhxy-xgzs/xg_yqglxs/xsmrsb/getYqxx
-saveUrl = https://xg.hit.edu.cn/zhxy-xgzs/xg_yqglxs/xsmrsb/saveYqxx
+addUrl = https://xg.hit.edu.cn/zhxy-xgzs/xg_mobile/xs/csh
+editUrl = https://xg.hit.edu.cn/zhxy-xgzs/xg_mobile/xs/getYqxx
+saveUrl = https://xg.hit.edu.cn/zhxy-xgzs/xg_mobile/xs/saveYqxx
 
 [Push]
 
