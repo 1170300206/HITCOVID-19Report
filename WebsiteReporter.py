@@ -145,8 +145,10 @@ class WebsiteReporter(object):
         rtn = self.session.post(
             self.editUrl, data={'info': json.dumps({'id': status['module']})})
         data = rtn.json()['module']['data'][0]
+        if 'brzgtw' in data:
+            data['brzgtw'] = '36.3'
         rtn = self.session.post(
-            self.saveUrl, data={'info': json.dumps({'data': data})})
+            self.saveUrl, data={'info': json.dumps({'model': data})})
         try:
             print(rtn.text)
             status = rtn.json()
