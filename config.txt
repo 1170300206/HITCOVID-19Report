@@ -1,7 +1,6 @@
 [DEFAULT]
 usr = 
-passwd = 
-
+passwd =
 
 [Website]
 usr-agent = Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36 Edg/84.0.522.44
@@ -13,7 +12,6 @@ editUrl = https://xg.hit.edu.cn/zhxy-xgzs/xg_mobile/xs/getYqxx
 saveUrl = https://xg.hit.edu.cn/zhxy-xgzs/xg_mobile/xs/saveYqxx
 
 [Push]
-
 pushUrl = http://pushplus.hxtrip.com/send
 token = 
 template = html
@@ -28,3 +26,9 @@ addUrl = https://xg.hit.edu.cn/zhxy-xgzs/xg_mobile/xsTwsb/saveTwsb
 Login-url = http://ids.hit.edu.cn/authserver/login?service=https://xg.hit.edu.cn/zhxy-xgzs/xg_mobile/xsTwsb
 token-url = https://xg.hit.edu.cn/zhxy-xgzs/xg_mobile/xs/getToken
 update-url = https://xg.hit.edu.cn/zhxy-xgzs/xg_mobile/xsTwsb/updateTwsb
+
+[AskForOut]
+outurl = https://xg.hit.edu.cn/zhxy-xgzs/xg_mobile/xsCxsq
+outlistUrl = https://xg.hit.edu.cn/zhxy-xgzs/xg_mobile/xsCxsq/getCxsqList
+addUrl =  https://xg.hit.edu.cn/zhxy-xgzs/xg_mobile/xsCxsq/getCxsq
+editUrl = https://xg.hit.edu.cn/zhxy-xgzs/xg_mobile/xsCxsq/editCxsq?id=&zt=

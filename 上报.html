@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta content="initial-scale=1,maximum-scale=1, minimum-scale=1" name="viewport"/>
+<title>HIT学工</title>
+<link href="/zhxy-xgzs/resources/hit/favicon/favicon.ico" rel="shortcut icon"/>
+<script src="/zhxy-xgzs/resources/jquery/jquery-2.2.0.min.js"></script>
+<link href="/zhxy-xgzs/resources/apps/xg_mobile/weui/weui.css" rel="stylesheet" type="text/css"/>
+<script src="/zhxy-xgzs/resources/apps/xg_mobile/weui/weui.js"></script>
+<link href="/zhxy-xgzs/resources/apps/xg_mobile/weui/jquery-weui.css" rel="stylesheet" type="text/css"/>
+<script src="/zhxy-xgzs/resources/apps/xg_mobile/weui/jquery-weui.js"></script>
+<link href="/zhxy-xgzs/resources/apps/xg_mobile/xs/fonts/iconfont.css" rel="stylesheet" type="text/css"/>
+<link href="/zhxy-xgzs/resources/apps/xg_mobile/xs/fonts1/iconfont.css" rel="stylesheet" type="text/css"/>
+<script src="/zhxy-xgzs/resources/apps/xg_mobile/xs/js/common.js"></script>
+<style type="text/css">
+*{  
+   padding:0px;
+   margin:0px;
+   list-style: none;
+   text-decoration: none;
+   font-family: "Microsoft YaHei"; 
+   position: relative;
+   letter-spacing: 0.25px; 
+   color: #333333;
+}
+.weui-animate-slide-up{
+	line-height:25px !important;
+}
+.float_left{ 
+    position: absolute;
+    top: 1.2vh;
+    left: 2vw;
+    z-index:5;
+}
+.back_text{
+	width: 14vw;
+	background-image: linear-gradient(-90deg, #1B79FF 2%, #1D68D2 99%);
+	border-radius: 15px;
+    padding: 5px;
+    height: 5vw;
+    color: #FFFFFF;
+	font-size: 14px;
+	text-align: center
+}
+.header_title{
+	border-bottom: 0.08rem solid #F7F7F7;
+	text-align: center;
+	font-size: 1.2rem;
+	font-weight: 700;
+	padding : 10px
+}
+.title_name{
+	text-align: left;
+	font-size: 1.2rem;
+	font-weight: 700;
+	padding : 10px
+}
+.content{
+	border-top: 0.08rem solid #F7F7F7;
+}
+.content_title{
+	color: #333333;
+	font-size: 0.6rem;
+	font-weight: 500;
+	padding: 10px;
+    color: #5b5bbd;
+}
+.content_nr{
+	padding: 0px 10px;
+	color: #333333;
+	font-size: 0.8rem;
+}
+.content_textarea {
+	display: block; 
+    border: 1px solid #e4dada;
+    resize: none;
+    width: 100%;
+    outline: 0;
+    color: #999999;
+}
+.nr_title{
+	color: #333333;
+	font-weight: 700
+}
+.nr_xq{
+	padding : 5px 0px;
+}
+.xq{
+	color: #999999;
+}
+.content1{
+	border-top: 1rem solid #F7F7F7;
+}
+.content2{
+	display: flex; 
+    flex-direction: column;
+}
+.zk{
+	float: right;
+	font-size: 1.5rem !important;
+	color: #1B79FF;
+}
+.content_part_left{
+	width : 24vw;
+	float : left;
+}
+.personal_photo{
+	width: 4rem;
+    height: 4rem;
+    margin: 1rem;
+	border-radius: 10vw;
+	border: 1px solid #EDEDED;
+}
+.content_part_right{
+	width : 72vw;
+	float : left;
+}
+.right_title{
+	padding: 1.5rem 0rem 0.5rem 0rem;
+	font-size: 18px;
+	color: #333333;
+}
+.right_bmmc{
+	font-family: PingFangSC-Regular;
+	font-size: 12px;
+	color: #666666;
+}
+.personal_list{
+	float:left;
+	font-size:0.8rem
+}
+.list_xq{
+	padding:10px;
+	color: #999999;
+	border-top: 0.08rem solid #F7F7F7;
+	width: 94vw;
+}
+
+.serach{
+    border-radius: 4px;
+    margin: 15px;
+    color: #666666;
+    display: inline-block;
+    font-size: 14px;
+}
+.serach_content{
+    width: 88vw;
+    display: inline-block;
+    word-break: break-word;
+    margin-top: 5px;
+    height: 30px;
+}
+.serach_content a,.serach_content span{
+    width: 20vw; 
+    float: left;
+    padding:1px 10px 1px 20px;
+}
+.serach_input{
+     height:35px;
+     width:50.5vw !important;
+/*      border-radius: 0.5rem;  */
+     font-size:16px;
+     line-height:35px !important;
+     height:35px !important;
+     border:1px solid #EDEDED;
+     padding-left:5px;
+}
+.down_icon{
+    color: #999999;
+    font-size: 12px !important;
+    position: absolute; 
+    right: 26px;
+    top: 10px;
+}
+
+.left_btn,.right_btn{
+	background-image: linear-gradient(-90deg, #1B79FF 2%, #1D68D2 99%);
+    width: 22vw;
+    height: 2rem;
+    line-height: 2rem;
+    text-align: center;
+    margin: 1rem 0rem 0rem 0rem;
+    color: #FFFFFF;
+    border-radius: 1rem;
+}
+.left_btn{
+	background-image: linear-gradient(-90deg, #f9c353 2%, #f9c454 99%);
+} 
+.weui-select {
+	height: 36px;
+    line-height: 36px;
+    background-color: white;
+    width: 59vw;
+}
+.weui-cell:before{
+    border-top: 0px solid #D9D9D9;
+}
+.xz{ 
+    font-size: 1.2rem;
+    margin-left: 2vw;
+    margin-right: 2vw;
+    height: 2.5rem; 
+    display: inline-block;
+    line-height: 2.5rem;
+    display: block;
+    width: 12rem;
+    float: left;
+}
+.neirong{
+	font-size: 1rem;
+    margin-left: 2vw;
+}
+.yc{
+	display: none;
+}
+
+#loading{
+        background-color: #1A68FF;
+        height: 100%;
+        width: 100%;
+        position: fixed;
+        z-index: 1;
+        margin-top: 0px;
+        top: 0px;
+    }
+    #loading-center{
+        width: 100%;
+        height: 100%;
+        position: relative;
+    }
+    #loading-center-absolute {
+        position: absolute;
+        left: 60%;
+        top: 50%;
+        height: 150px;
+        width: 150px;
+        margin-top: -75px;
+        margin-left: -75px;
+    }
+    .object{
+        width: 10px;
+        height: 10px;
+        background-color: #FFF;
+        float: left;
+        margin-right: 20px;
+        margin-top: 65px;
+        -moz-border-radius: 50% 50% 50% 50%;
+        -webkit-border-radius: 50% 50% 50% 50%;
+        border-radius: 50% 50% 50% 50%;
+    }
+
+    #object_one {   
+        -webkit-animation: object_one 1.5s infinite;
+        animation: object_one 1.5s infinite;
+        }
+    #object_two {
+        -webkit-animation: object_two 1.5s infinite;
+        animation: object_two 1.5s infinite;
+        -webkit-animation-delay: 0.25s; 
+        animation-delay: 0.25s;
+        }
+    #object_three {
+        -webkit-animation: object_three 1.5s infinite;
+        animation: object_three 1.5s infinite;
+        -webkit-animation-delay: 0.5s;
+        animation-delay: 0.5s;  
+        }
+        
+         @-webkit-keyframes object_one {
+    75% { -webkit-transform: scale(0); }
+    }
+    @keyframes object_one {
+
+      75% { 
+        transform: scale(0);
+        -webkit-transform: scale(0);
+      }
+    }
+    @-webkit-keyframes object_two {
+      75% { -webkit-transform: scale(0); }
+    }
+    @keyframes object_two {
+      75% { 
+        transform: scale(0);
+        -webkit-transform:  scale(0);
+      }
+    }
+    @-webkit-keyframes object_three {
+
+      75% { -webkit-transform: scale(0); }
+    }
+    @keyframes object_three {
+
+      75% { 
+        transform: scale(0);
+        -webkit-transform: scale(0);
+      } 
+    }
+    
+    .weui-cells {
+	    margin-top: 2em;
+	    line-height: 1.41176471;  
+	    font-size: 17px;
+	    overflow: visible;
+	    position: relative;
+	}
+	.weui-cells:after {
+    	border-bottom: 0px solid #D9D9D9;
+	}
+	.weui-cells:before {
+    	border-top: 0px solid #D9D9D9;
+	}
+	
+.content_nr_img{
+    display: flex; 
+ 	flex-direction: column;
+    padding: 0px 10px;
+}
+.upload_img{
+ 	background: url(/zhxy-xgzs/resources/apps/xg_mobile/xsCxsq/images/shouye.png) no-repeat; 
+    height: 79px;
+    width: 79px;
+	background-position: center;
+    background-size: 100%;
+    float:left;
+    margin-left:10px;
+    margin-top:5px;
+    border-radius: 10px;
+}
+
+.weui-uploader__input-box{
+	margin-left:10px;
+	margin-top:5px;
+}
+.tpsc_btn{
+	text-align: center;
+    top: 55px;
+    background-color: #000;
+    opacity: 0.6;
+    color: white;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+.weui-cells_checkbox .weui-check:checked + .weui-icon-checked:before{
+    color: #3583f1;
+}
+</style>
+</head>
+<body>
+<div class="content">
+<!--         <div class="content_title" style="font-size: 1rem;">提交出校申请</div> -->
+<div class="content_nr">
+<div class="serach_content" style="height: 30px;"><span class="title_input" style="font-weight: bold;width: 87vw;color: white;background-color: #3583f1;">提交出校申请</span></div>
+<div class="serach_content" style="height: 25px;font-size: 14px;"><span class="title_input">姓名</span><span id="xm"></span></div>
+<div class="serach_content" style="height: 25px;font-size: 14px;"><span class="title_input">学号</span><span id="xh" style="width: 50vw;"></span></div>
+<div class="serach_content" style="height: 25px;font-size: 14px;"><span class="title_input">公寓</span><span id="gymc" style="width: 50vw;"></span></div>
+<div class="serach_content" style="height: 100px;font-size: 14px;"><span class="title_input">出校门岗</span><textarea class="content_textarea" id="crmg" readonly="" rows="4" style="width: 90%;margin: auto;"></textarea></div>
+<div class="serach_content" id="dsdiv" style="height: 18px;display:none;font-size: 14px;"><span class="title_input">导师</span><span id="dsxm" style="width: 50vw;"></span></div>
+<div class="serach_content" id="dsdiv1" style="height: 18px;display:none;font-size: 14px;"><span class="title_input" style="width:22vw">导师手机号</span><span id="dssjh" style="width: 50vw;"></span></div>
+<div class="serach_content" style="height: 28px;"><span style="width: 88vw;color: red;font-size: 12px;">如信息不正确请到个人信息页面进行修改，点击<a href="/zhxy-xgzs/xg_mobile/xs/grxx" style="margin-top: 0px;width: auto;float: none;padding: 0px;color: #3583f1;">个人信息</a>跳转到个人信息页面</span></div>
+<!-- 		    <div class="serach_content" style="margin-bottom: 5px;margin-top: 15px;font-size: 14px;"><span class="title_input" style="width: 24vw;">出校类型<font style="color:red">*</font></span><input id="cxlx" class="serach_input" type="text" style="padding-right: 25px;width: 46.5vw  !important;font-size: 14px;" readonly/><i class="iconfont down_icon icon-xiajiantou"></i></div> -->
+<div class="serach_content" style="height: 28px;font-size: 14px;"><span class="title_input" style="margin-top: 8px;color: #3583f1;font-weight: bold;">出校类型<font style="color:red">*</font></span>
+<div class="weui-cells_checkbox" style="display: -webkit-inline-box;width: 80vw;">
+<label class="weui-cell weui-check__label1" for="cxlx01" onclick="sfChange()" style="flex-direction: row;">
+<div class="weui-cell__hd">
+<input class="weui-check" id="cxlx01" name="cxlx" type="radio" value="01"/>
+<i class="weui-icon-checked"></i>
+</div>
+<div class="weui-cell__bd1">临时出校</div>
+</label>
+<label class="weui-cell weui-check__label1" for="cxlx03" onclick="sfChange()" style="flex-direction: row;">
+<div class="weui-cell__hd">
+<input class="weui-check" id="cxlx03" name="cxlx" type="radio" value="03"/>
+<i class="weui-icon-checked"></i>
+</div>
+<div class="weui-cell__bd1">离校</div>
+</label>
+</div>
+</div>
+<div class="serach_content" id="cxlxtsDiv" style="display:none;height: 8vh;"><span style="width: 88vw;">
+<p style="color: red;font-size: 12px;">申请对象：1.离开校园一天以上学生</p>
+<p style="color: red;font-size: 12px;padding-left:15vw">2.离开哈尔滨市区学生</p>
+<!-- 			<p style="color: red;font-size: 12px;padding-bottom:5px">离校14天内（含14天）：未途径中高风险低区，且出校期间健康状况无异常，回校时可在本流程中按要求填报，审核后进校。</p> -->
+<!-- 			<p style="color: red;font-size: 12px;">离校14天以上：需按秋季学期返校流程执行，返校前联系辅导员，并按要求在返校系统中提交核酸检测报告，审核后进校。</p> -->
+</span></div>
+<div class="serach_content" id="cxlxtsDiv1" style="display:none;height: 10px;"><span style="width: 88vw;">
+<p style="color: red;font-size: 12px;">临时出校申请对象：出校后当日返回校园且不离开哈尔滨市区学生。</p>
+</span></div>
+<div class="serach_content" style="margin-top: 15px;font-size: 14px;margin-bottom: -14px;"><span class="title_input" style="color: #3583f1;font-weight: bold;width:80vw;">出校（离校）日期<font style="color:red">*</font></span></div>
+<div class="serach_content" style="margin-bottom: 5px;font-size: 14px;"><input class="serach_input" id="rq" readonly="" style="padding-right: 25px;width: 72vw !important;font-size: 14px;margin-left: 17px;" type="text"/><i class="iconfont down_icon icon-xiajiantou"></i></div>
+<div class="serach_content" style="height: 10px;"><span style="width: 88vw;color: red;font-size: 12px;">出入校时间：6:00-22:00</span></div>
+<div class="serach_content" style="margin-bottom: 5px;font-size: 14px;height: 100px;"><span class="title_input" style="color: #3583f1;font-weight: bold;width:80vw;margin-top:15px">出校（离校）事由<font style="color:red">*</font></span><textarea class="content_textarea" id="cxly" maxlength="2000" rows="5" style="width: 90%;margin: auto;"></textarea></div>
+<div id="xsyc" style="display:none;">
+<div class="serach_content" style="margin-top: 15px;font-size: 14px;"><span class="title_input" style="color: #3583f1;font-weight: bold;width:80vw;margin-top:15px">预计离校结束时间<font style="color:red">*</font></span></div>
+<div class="serach_content" style="margin-bottom: 5px;font-size: 14px;"><input class="serach_input" id="yjlxjsrq" readonly="" style="padding-right: 25px;width: 72vw  !important;margin-left: 17px;" type="text"/><i class="iconfont down_icon icon-xiajiantou"></i></div>
+<div class="serach_content" style="height: 10vh;">
+<span style="width: 88vw;">
+<p style="color: red;font-size: 12px;">重要提示：</p>
+<p style="color: red;font-size: 12px;padding-bottom:5px">1.入校前，请在本流程后，点击“申请离校结束”，审核入校。</p>
+<p style="color: red;font-size: 12px;padding-bottom:5px">2.预计离校结束时间，请尽量与实际入校时间保持一致。</p>
+<!-- 						<p style="color: red;font-size: 12px;">3.如离校超过14天，请联系辅导员，并按要求在返校系统中提交核酸检测报告，审核后进校。</p> -->
+</span>
+</div>
+<div class="serach_content"><span class="title_input" style="font-size: 14px;color: #3583f1;font-weight: bold;width:80vw;margin-top:15px">请上传请假/因公出差/实习实训等相关审批材料。</span></div>
+<div class="serach_content" style="height: 10vh;">
+<span style="width: 88vw;color: red;font-size: 12px;">
+<p style="color: red;font-size: 12px;">重要提示：</p>
+<p style="color: red;font-size: 12px;padding-bottom:5px">1.离校时间段在节假日内的学生，不用上传相关审批材料。</p>
+<p style="color: red;font-size: 12px;">2.离校时间段内包含非节假日的学生，请遵照本科生院、研究生院、各院系（部）的要求上传相关审批材料。</p>
+</span>
+</div>
+<div id="uploader" style="display:none"><input accept="image/*" id="zpscbtn" multiple="" type="file"/></div>
+<div class="content_nr_img">
+<div id="tp_div">
+<div class="weui-uploader__input-box" id="xsyc" onclick="tpsc()"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="serach_content" style="height: 25px;margin-top: 10vw;"><span class="title_input" style="width: 50vw;">本人承诺：</span></div>
+<div id="cxlxdiv1">
+<div class="serach_content" style="padding: 0px 5vw;font-size: 14px;"><input id="checkbox1" style="margin: 4px 10px 0px 0px;" type="checkbox"/><label for="checkbox1">出校理由真实，当日出入校园且不离开哈尔滨市区的学生</label></div>
+<div class="serach_content" style="padding: 0px 5vw;font-size: 14px;"><input id="checkbox2" style="margin: 4px 10px 0px 0px;" type="checkbox"/><label for="checkbox2">避免乘坐公交、地铁等公共交通工具</label></div>
+<div class="serach_content" style="padding: 0px 5vw;font-size: 14px;"><input id="checkbox3" style="margin: 4px 10px 0px 0px;" type="checkbox"/><label for="checkbox3">外出佩戴口罩、注意手部卫生</label></div>
+<div class="serach_content" style="padding: 0px 5vw;font-size: 14px;"><input id="checkbox4" style="margin: 4px 10px 0px 0px;" type="checkbox"/><label for="checkbox4">出校行程“俩点一线”，尽量减少与他人接触</label></div>
+<div class="serach_content" style="padding: 0px 5vw;font-size: 14px;"><input id="checkbox5" style="margin: 4px 10px 0px 0px;" type="checkbox"/><label for="checkbox5">外出事宜完成后，马上返回校内</label></div>
+<div class="serach_content" style="padding: 0px 5vw;font-size: 14px;"><input id="checkbox6" style="margin: 4px 10px 0px 0px;" type="checkbox"/><label for="checkbox6">外出途中出现发热等症状，马上报告并及时就医，不返回校园</label></div>
+<div class="serach_content" id="xslbxsyc" style="padding: 0px 5vw;display:none;font-size: 14px;"><input id="checkbox7" style="margin: 4px 10px 0px 0px;" type="checkbox"/><label for="checkbox7">已经与导师联系，导师知情同意</label></div>
+<div class="serach_content" style="padding: 0px 5vw;font-size: 14px;"><input id="checkbox8" style="margin: 4px 10px 0px 0px;" type="checkbox"/><label for="checkbox8">本人已知晓出入校时间为6:00-22:00</label></div>
+<div class="serach_content" style="padding: 0px 5vw;font-size: 14px;"><input id="checkbox9" style="margin: 4px 10px 0px 0px;" type="checkbox"/><label for="checkbox9">本人承诺出校、入校时，主动出示校园卡，完成出校、入校出刷卡流程。</label></div>
+</div>
+<div id="cxlxdiv2" style="display:none">
+<div class="serach_content" style="padding: 0px 5vw;font-size: 14px;"><input id="checkbox11" style="margin: 4px 10px 0px 0px;" type="checkbox"/><label for="checkbox11">申请日期当天离校。</label></div>
+<div class="serach_content" style="padding: 0px 5vw;font-size: 14px;"><input id="checkbox21" style="margin: 4px 10px 0px 0px;" type="checkbox"/><label for="checkbox21">离校时，在门岗处主动出示校园卡，务必扫码出校。</label></div>
+<div class="serach_content" style="padding: 0px 5vw;font-size: 14px;"><input id="checkbox31" style="margin: 4px 10px 0px 0px;" type="checkbox"/><label for="checkbox31">离校后，旅程途中做好个人防护。</label></div>
+<div class="serach_content" style="padding: 0px 5vw;font-size: 14px;"><input id="checkbox51" style="margin: 4px 10px 0px 0px;" type="checkbox"/><label for="checkbox51">离校后，如需假期期间返校，请提前联系学院。</label></div>
+<div class="serach_content" id="xslbxsyc2" style="padding: 0px 5vw;display:none;font-size: 14px;"><input id="checkbox41" style="margin: 4px 10px 0px 0px;" type="checkbox"/><label for="checkbox41">已经与导师联系，导师知情同意</label></div>
+</div>
+<div class="left_btn" onclick="fanhui()" style="width: 50%;float: left;">返回</div>
+<div class="right_btn" onclick="save()" style="width: 50%;float: right;">提交</div>
+<div id="loading" style="display:none">
+<div id="loading-center">
+<div id="loading-center-absolute">
+<div class="object" id="object_one"></div>
+<div class="object" id="object_two"></div>
+<div class="object" id="object_three"></div>
+</div>
+</div>
+</div>
+<div id="outerdiv" style="position:fixed;top:0;left:0;background:rgba(0,0,0,0.7);z-index:2;width:100%;height:100%;display:none;">
+</div>
+<script type="text/javascript">
+var id = '';
+var xslb = "";
+var cxlxarr = [{value : "01",label : "临时出校"},{value : "03",label : "离校"}];
+var defaultcxlxarr = ["01"];
+$("#cxlx").click(function(){  
+    weui.picker(cxlxarr, {   
+        defaultValue: defaultcxlxarr,             
+        onConfirm: function (result) {  
+            $("#cxlx").val(result[0].label);  
+            $("#cxlx").attr("data-action",result[0].value);
+            if(result[0].value=="01"){
+				$("#cxlxdiv1").show();
+				$("#cxlxdiv2").hide();
+				$("#cxlxtsDiv").hide();
+			}else if(result[0].value=="03"){
+				$("#cxlxdiv1").hide();
+				$("#cxlxdiv2").show();
+				$("#cxlxtsDiv").show();
+			}
+            alert(result[0].value)
+        },
+        id: 'cxlx1'  
+    }); 
+});
+
+function sfChange(){
+	var cxlx = $("input[name=cxlx]:checked").val();
+	if(cxlx=="01"){
+		$("#cxlxdiv1").show();
+		$("#cxlxdiv2").hide();
+		$("#cxlxtsDiv").hide();
+		$("#cxlxtsDiv1").show();
+		$("#xsyc").hide();
+	}else if(cxlx=="03"){
+		$("#cxlxdiv1").hide();
+		$("#cxlxdiv2").show();
+		$("#cxlxtsDiv").show();
+		$("#cxlxtsDiv1").hide();
+		$("#xsyc").show();
+	}
+}
+
+$("#rq").click(function(event) { 
+    var _this = this;  
+    weui.datePicker({
+        start: 2020,   
+        end: 2030,
+        defaultValue: [new Date().getFullYear(), new Date().getMonth()+1, new Date().getDate()],
+        onConfirm: function(result){
+        	$("#rq").val(result[0].label + result[1].label + result[2].label);
+        },
+        id: 'rq',
+        className: 'ma_expect_date_picker'
+    });
+}); 
+
+$("#yjlxjsrq").click(function(event) { 
+    var _this = this;  
+    weui.datePicker({
+        start: 2020,   
+        end: 2030,
+        defaultValue: [new Date().getFullYear(), new Date().getMonth()+1, new Date().getDate()],
+        onConfirm: function(result){
+        	$("#yjlxjsrq").val(result[0].label + result[1].label + result[2].label);
+        },
+        id: 'yjlxjsrq',
+        className: 'ma_expect_date_picker'
+    });
+}); 
+
+if(id!=""){
+	getCxsq();
+}else{
+	getCxsq1();
+}
+
+function getCxsq(){
+	$.ajax({
+		url : "/zhxy-xgzs/xg_mobile/xsCxsq/getCxsq", 
+		type : "Post",
+		dataType : "json", 
+		data : {info:JSON.stringify({id : id})},
+		success : function(result) { 
+			if (!result.isSuccess) {
+				$.toptip("获取申请出校信息失败","warning");  
+			} else { 
+				
+				var jbxx = result.module.jbxx[0];
+				var data = result.module.fxxx[0];
+				xslb = jbxx.xslb;
+				if(xslb!="1"){
+					$("#dsdiv").show();
+					$("#dsdiv1").show();
+					$("#xslbxsyc").show();
+					$("#xslbxsyc2").show();
+				}
+				
+				$("#xm").text(jbxx.xm);
+				$("#xh").text(jbxx.xh);
+				$("#gymc").text(jbxx.gymc);
+				$("#dsxm").text(jbxx.dsxm);
+				$("#dssjh").text(jbxx.dssjh);
+				$("#crmg").text(jbxx.crmg.replace(/,/g, '、'));
+				
+				$("#rq").val(data.rq); 
+				$("#yjlxjsrq").val(data.yjlxjsrq);  
+				$("#cxly").val(data.cxly); 
+// 				if(data.cxlx!=null&&data.cxlx!=""){
+// 					$("#cxlx").val(data.cxlxmc);  
+// 					$("#cxlx").attr("data-action",data.cxlx); 
+// 					defaultcxlxarr=[];
+// 					defaultcxlxarr.push(data.cxlx);
+// 				} 
+
+				$("input[name='cxlx'][value='"+data.cxlx+"']").attr("checked","checked");
+
+				if(data.cxlx=="01"){
+					$("#cxlxdiv1").show();
+					$("#cxlxdiv2").hide();
+					$("#cxlxtsDiv").hide();
+					$("#xsyc").hide();
+				}else if(data.cxlx=="03"){
+					$("#cxlxdiv1").hide();
+					$("#cxlxdiv2").show();
+					$("#cxlxtsDiv").show();
+					$("#xsyc").show();
+				}
+
+				var html = "";
+				$("#tp_div").empty();
+				if(data.fjlj!=""){   
+					html += '<div class="upload_img" id="getZp'+data.fjlj+'" src="/zhxy-xgzs/xg_mobile/xsCxsq/getZp?id='+id+'&r='+Math.random()+'")">';
+					html += '<div class="tpsc_btn" onclick="deleteFj(\''+id+'\')">删除</div>';
+					html += '</div>';  
+				}else{
+	 				html += '<div class="weui-uploader__input-box" id="xsyc" onclick="tpsc()"></div>'; 
+				}    
+				  
+				$(html).appendTo($("#tp_div")); 
+				
+				if(data.fjlj!=""){  
+					$("#getZp"+data.fjlj).css("background-image","url(/zhxy-xgzs/xg_mobile/xsCxsq/getZp?id="+id+"&r="+Math.random()+")");  
+				} 
+			}    
+		},
+		error : function() {
+			$.toptip("获取返校失败","warning");
+		}
+	});
+}
+
+function getCxsq1(){
+	$.ajax({
+		url : "/zhxy-xgzs/xg_mobile/xsCxsq/getCxsq", 
+		type : "Post",
+		dataType : "json", 
+		data : {info:JSON.stringify({id : "id"})},
+		success : function(result) { 
+			if (!result.isSuccess) {
+				$.toptip("获取申请出校信息失败","warning");  
+			} else { 
+				
+				var jbxx = result.module.jbxx[0];
+				xslb = jbxx.xslb;
+				id = result.module.id;
+				if(xslb!="1"){
+					$("#dsdiv").show();
+					$("#dsdiv1").show();
+					$("#xslbxsyc").show();
+					$("#xslbxsyc2").show();
+				}
+				$("#xm").text(jbxx.xm);
+				$("#xh").text(jbxx.xh);
+				$("#gymc").text(jbxx.gymc);
+				$("#dsxm").text(jbxx.dsxm);
+				$("#dssjh").text(jbxx.dssjh);
+				$("#crmg").text(jbxx.crmg);
+			}    
+		},
+		error : function() {
+			$.toptip("获取返校失败","warning");
+		}
+	});
+}
+
+function save(){
+
+	var cxlx = $("input[name=cxlx]:checked").val();
+	if(typeof(cxlx) == "undefined"){
+		$.toptip("请选择【出校类型】！", "warning"); 
+		return false;  
+	}
+	var rq = $("#rq").val().replace("年","-").replace("月","-").replace("日","");
+	var cxly = $("#cxly").val();
+	var yjlxjsrq = "";
+
+	
+	if(cxlx=="01"){
+		if(xslb!="1"){
+			if(!$('#checkbox1').is(':checked')||!$('#checkbox2').is(':checked')||!$('#checkbox3').is(':checked')
+					||!$('#checkbox4').is(':checked')||!$('#checkbox5').is(':checked')||!$('#checkbox6').is(':checked')||!$('#checkbox7').is(':checked')||!$('#checkbox8').is(':checked')||!$('#checkbox9').is(':checked')) {
+				$.toptip("请勾选本人承诺以上申报内容全部属实！","warning");
+				return false;  
+			} 
+		}else{
+			if(!$('#checkbox1').is(':checked')||!$('#checkbox2').is(':checked')||!$('#checkbox3').is(':checked')
+					||!$('#checkbox4').is(':checked')||!$('#checkbox5').is(':checked')||!$('#checkbox6').is(':checked')||!$('#checkbox8').is(':checked')||!$('#checkbox9').is(':checked')) {
+				$.toptip("请勾选本人承诺以上申报内容全部属实！","warning");
+				return false;  
+			} 
+		}
+		if(rq == ""){
+			$.toptip("请选择【出校日期】！", "warning"); 
+			return false;  
+		}
+		if(cxly == ""){
+			$.toptip("请填写【出校理由】！", "warning"); 
+			return false;  
+		}
+	}else if(cxlx=="03"){
+		if(xslb!="1"){
+			if(!$('#checkbox11').is(':checked')||!$('#checkbox21').is(':checked')||!$('#checkbox31').is(':checked')
+					||!$('#checkbox41').is(':checked')||!$('#checkbox51').is(':checked')) {
+				$.toptip("请勾选本人承诺以上申报内容全部属实！","warning");
+				return false;  
+			} 
+		}else{
+			if(!$('#checkbox11').is(':checked')||!$('#checkbox21').is(':checked')||!$('#checkbox31').is(':checked')
+					||!$('#checkbox51').is(':checked')) {
+				$.toptip("请勾选本人承诺以上申报内容全部属实！","warning");
+				return false;  
+			} 
+		}
+		yjlxjsrq = $("#yjlxjsrq").val().replace("年","-").replace("月","-").replace("日","");
+		if(rq == ""){
+			$.toptip("请选择【离校日期】！", "warning"); 
+			return false;  
+		}
+		if(yjlxjsrq == ""){
+			$.toptip("请选择【预计离校结束时间】！", "warning"); 
+			return false;  
+		}
+		if(cxly == ""){
+			$.toptip("请填写【出校理由】！", "warning"); 
+			return false;  
+		}
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	var data = {
+		rq  : rq,
+		cxly  : cxly,
+		cxlx  : cxlx,
+		yjlxjsrq  : yjlxjsrq,
+		id : id
+	}
+
+	$.confirm("是否提交申请?", "提示", function() {
+		$.ajax({
+	        async: false,
+	        url : "/zhxy-xgzs/xg_mobile/xsCxsq/saveCxsq",   
+	        type : "POST",
+	        dataType : "json",
+	        data : {info:JSON.stringify({model : data})},
+	        success: function(result){   
+	            if(result.isSuccess){ 
+                	$.alert("提交成功"); 
+                	setTimeout("fanhui()",2000);
+	            }else{
+                   	$.toptip(result.msg);
+	            }
+	        },
+	        error : function(){  
+	        	$.toptip("操作失败");
+	        }
+	    });
+      }, function() {
+        
+      });
+}
+
+function fanhui(){
+	window.location.href="/zhxy-xgzs/xg_mobile/xsCxsq";
+}
+
+
+function tpsc(){
+   	uploader();
+   	$("#zpscbtn").trigger("click");
+}
+
+function uploader(){
+	weui.uploader('#uploader', {
+	    url: "/zhxy-xgzs/xg_mobile/xsCxsq/zpsc?id="+id, 
+	    auto: true,
+	    type: 'file',
+	    fileVal: 'fileVal', 
+	    compress: {
+	        width: 1600,
+	        height: 1600,
+	        quality: .8
+	    },
+	    onBeforeQueued: function(files) {
+	        if (files.length > 1) { 
+	            weui.alert('最多只能上传1张图片，请重新选择');
+	            return false;
+	        }
+	    },
+	    onProgress: function(procent){
+	    },
+	    onSuccess: function (result) {
+	    	listFj();
+	    },
+	    onError: function(err){ 
+	    },
+	});
+}
+function listFj(){
+	$.ajax({
+		url : "/zhxy-xgzs/xg_mobile/xsCxsq/listFj",  
+		type : "Post",
+		async : false,
+		dataType : "json",
+        data : {info:JSON.stringify({id : id})},
+		success : function(result) {
+			var data = result.module.data;
+			var html = "";
+			$("#tp_div").empty();
+			if(data!=null&&data.fjlj!=""){   
+				html += '<div class="upload_img" id="getZp'+data.fjlj+'" src="/zhxy-xgzs/xg_mobile/xsCxsq/getZp?id='+id+'&r='+Math.random()+'")">';
+				html += '<div class="tpsc_btn" onclick="deleteFj(\''+id+'\')">删除</div>';
+				html += '</div>';  
+			}else{
+ 				html += '<div class="weui-uploader__input-box" onclick="tpsc()"></div>'; 
+			}    
+			  
+			$(html).appendTo($("#tp_div")); 
+			if(data!=null&&data.fjlj!=""){  
+				$("#getZp"+data.fjlj).css("background-image","url(/zhxy-xgzs/xg_mobile/xsCxsq/getZp?id="+id+"&r="+Math.random()+")");  
+			} 
+		},
+		error : function() {
+			 weui.topTips("失败","提示");  
+		} 
+	});  
+}
+function deleteFj(id){
+	$.ajax({
+		url : "/zhxy-xgzs/xg_mobile/xsCxsq/deleteFj",  
+		type : "Post",
+		async : false,
+		dataType : "json",
+        data : {info:JSON.stringify({id : id})},
+		success : function(result) {
+			listFj();
+		},
+		error : function() { 
+			 weui.topTips("失败","提示");  
+		} 
+	});  
+}
+</script>
+</body>
+</html>
